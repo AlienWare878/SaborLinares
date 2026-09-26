@@ -20,6 +20,12 @@
 
         <h1>Lugares de Sabor Linares</h1>
 
+<p>
+    <a href="${pageContext.request.contextPath}/logout">
+        Cerrar sesión
+    </a>
+</p>
+
         <%
             List<Lugar> lugares = (List<Lugar>) request.getAttribute("lugares");
         %>
