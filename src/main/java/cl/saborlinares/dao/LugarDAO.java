@@ -162,18 +162,27 @@ public class LugarDAO {
 }
     public boolean eliminar(int id) {
 
-    String sql = "DELETE FROM lugares WHERE id = ?";
+        String sqlResenas = "DELETE FROM resenas WHERE lugar_id = ?";
+        String sqlLugar = "DELETE FROM lugares WHERE id = ?";
 
-    try (Connection conexion = Conexion.obtenerConexion();
-         PreparedStatement statement = conexion.prepareStatement(sql)) {
+        try (Connection conexion = Conexion.obtenerConexion()) {
 
-        statement.setInt(1, id);
+            // Eliminar reseñas asociadas para respetar la restricción de clave foránea
+            try (PreparedStatement stmtResenas = conexion.prepareStatement(sqlResenas)) {
+                stmtResenas.setInt(1, id);
+                stmtResenas.executeUpdate();
+            }
 
-        return statement.executeUpdate() > 0;
+            // Eliminar el lugar
+            try (PreparedStatement stmtLugar = conexion.prepareStatement(sqlLugar)) {
+                stmtLugar.setInt(1, id);
+                return stmtLugar.executeUpdate() > 0;
+            }
 
-    } catch (SQLException e) {
-        System.err.println("Error al eliminar el lugar: " + e.getMessage());
-        return false;
+        } catch (SQLException e) {
+            System.err.println("Error al eliminar el lugar (ID " + id + "): " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
     }
-}
 }

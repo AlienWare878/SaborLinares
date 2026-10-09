@@ -1,0 +1,455 @@
+/* Sabor Linares - Estilos Principales */
+
+:root {
+    --color-amarillo: #FFC857;
+    --color-naranja: #F28C28;
+    --color-naranja-oscuro: #E76F00;
+    --color-crema: #FFF9F0;
+    --color-blanco: #FFFFFF;
+    --color-texto: #3D3028;
+    --color-gris: #756F6A;
+    --color-gris-claro: #F0EDE8;
+    --color-verde-aprobado: #2E7D32;
+    --color-rojo-rechazado: #C62828;
+    --color-sombra: rgba(61, 48, 40, 0.08);
+    --fuente-principal: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-crema);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Navbar */
+header {
+    background: linear-gradient(135deg, var(--color-naranja), var(--color-naranja-oscuro));
+    color: var(--color-blanco);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo-brand {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-blanco);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-brand span {
+    color: var(--color-amarillo);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+nav a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-amarillo);
+}
+
+.user-badge {
+    background-color: var(--color-amarillo);
+    color: var(--color-texto);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Container Main */
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+    width: 100%;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+h1, h2, h3 {
+    color: var(--color-texto);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+/* Categorias / Filtros */
+.filtro-categorias {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.filtro-btn {
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-naranja);
+    color: var(--color-naranja-oscuro);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.filtro-btn:hover, .filtro-btn.active {
+    background-color: var(--color-naranja);
+    color: var(--color-blanco);
+}
+
+/* Grid de Lugares */
+.lugares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+}
+
+.card-lugar {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px var(--color-sombra);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.card-lugar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(61, 48, 40, 0.12);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 180px;
+    background-color: var(--color-gris-claro);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-img-placeholder {
+    font-size: 3rem;
+    color: var(--color-gris);
+}
+
+.badge-categoria {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--color-naranja);
+    color: var(--color-blanco);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-estado {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.estado-PENDIENTE { background-color: var(--color-amarillo); color: var(--color-texto); }
+.estado-APROBADO { background-color: var(--color-verde-aprobado); color: var(--color-blanco); }
+.estado-RECHAZADO { background-color: var(--color-rojo-rechazado); color: var(--color-blanco); }
+
+.card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-desc {
+    color: var(--color-gris);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.card-info {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+}
+
+.card-footer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-top: 1px solid var(--color-gris-claro);
+    padding-top: 1rem;
+    margin-top: auto;
+}
+
+/* Botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    gap: 0.4rem;
+}
+
+.btn-primary {
+    background-color: var(--color-naranja);
+    color: var(--color-blanco);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-naranja-oscuro);
+}
+
+.btn-secondary {
+    background-color: var(--color-amarillo);
+    color: var(--color-texto);
+}
+
+.btn-secondary:hover {
+    background-color: #f5b736;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-naranja);
+    color: var(--color-naranja-oscuro);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-naranja);
+    color: var(--color-blanco);
+}
+
+.btn-danger {
+    background-color: var(--color-rojo-rechazado);
+    color: var(--color-blanco);
+}
+
+.btn-danger:hover {
+    background-color: #a71d1d;
+}
+
+.btn-success {
+    background-color: var(--color-verde-aprobado);
+    color: var(--color-blanco);
+}
+
+.btn-success:hover {
+    background-color: #215c24;
+}
+
+.btn-sm {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+/* Formularios & Cards de Formularios */
+.form-card {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 20px var(--color-sombra);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--color-texto);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--color-gris-claro);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-naranja);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mapa Container */
+.map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px var(--color-sombra);
+    border: 2px solid var(--color-gris-claro);
+    margin-bottom: 1.5rem;
+}
+
+.map-picker {
+    height: 300px;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+}
+
+/* Reseñas */
+.reviews-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.star-rating {
+    color: var(--color-naranja-oscuro);
+    font-weight: 800;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    color: var(--color-rojo-rechazado);
+    border: 1px solid #ffcdd2;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: var(--color-verde-aprobado);
+    border: 1px solid #c8e6c9;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-texto);
+    color: var(--color-crema);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+footer strong {
+    color: var(--color-amarillo);
+}
