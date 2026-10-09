@@ -19,6 +19,6 @@ public class IndexServlet extends HttpServlet {
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
 
-        response.sendRedirect(request.getContextPath() + "/lugares");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }
